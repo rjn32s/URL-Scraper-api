@@ -15,7 +15,7 @@ app.use(express.json());
 
 // MongoDB connection URI
 const uri = 'mongodb://localhost:27017'; // Change this URI according to your MongoDB configuration
-MONGODB_URI="mongodb+srv://rjn32s:password123123@cluster0.koolamf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGODB_URI=process.env.MONGODB_URI;
 
 // Database Name
 const dbName = 'test';
