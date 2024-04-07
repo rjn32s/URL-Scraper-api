@@ -9,6 +9,28 @@ Before you begin, ensure you have met the following requirements:
 - You have installed [Node.js](https://nodejs.org/en/download/)
 - You have installed [MongoDB](https://www.mongodb.com/try/download/community)
 - You have a Windows machine. This guide is written for Windows.
+# Setting Up MongoDB Database for Node.js Application
+
+This guide will walk you through the process of setting up a MongoDB database for this Node.js application based on the provided configuration.
+
+## Prerequisites
+- Node.js installed on your system
+- MongoDB installed on your system or access to a MongoDB instance (local or cloud-based)
+
+## Steps
+
+### 1. Install MongoDB
+If you haven't already installed MongoDB, follow the installation instructions for your operating system from the official MongoDB documentation: [MongoDB Installation](https://docs.mongodb.com/manual/installation/)
+
+### 2. Set Up Environment Variables
+Create a `.env` file in your project directory and add the following variables:
+
+```dotenv
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017
+DB_NAME=url_db
+COLLECTION_NAME=responses
+```
 
 ## Installing URL Scraper API
 
