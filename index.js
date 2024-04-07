@@ -112,6 +112,21 @@ app.post('/checkUrl', async (req, res) => {
 });
 
 
+app.get('/fill', async (req, res) => {
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto('https://help.instagram.com/contact/230197320740525');
+
+    await page.waitForSelector('input[name="username"]'); // Wait for the username input field to appear
+
+    // Optionally, you can also wait for a button click
+    // await page.waitForSelector('button[type="submit"]'); // Wait for the submit button to appear
+    // await page.click('button[type="submit"]'); // Click the submit button
+
+    await browser.close();
+    res.json({ message: 'Job Done' });
+});
+
 app.get('/', (req, res) => {
     res.json({ message: 'Hello World!' });
 });
