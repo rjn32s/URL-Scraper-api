@@ -54,7 +54,7 @@ npm run dev
 To check a URL, you need to send a POST request to the `/checkUrl` endpoint with a JSON body containing the URL you want to check. Here's how you can do it using cURL:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"url": "https://google.com"}'
+curl -X POST -H "Content-Type: application/json" -d '{"url": "https://google.com"}' http://localhost:3000/checkUrl
 ```
 ### 2.  Fill Form Endpoint (`GET /fill`)
 
