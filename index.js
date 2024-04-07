@@ -7,20 +7,23 @@ const { URL } = require("url");
 const { MongoClient } = require("mongodb"); // Import MongoClient from mongodb
 const fs = require("fs");
 const ExcelJS = require('exceljs');
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const URI = process.env.MONGODB_URI || "";
 
 app.use(express.json());
 
-// MongoDB connection URI
-const uri = "mongodb://localhost:27017"; // Change this URI according to your MongoDB configuration
-MONGODB_URI = process.env.MONGODB_URI;
-
 // Database Name
-const dbName = "test";
+const dbName = process.env.DB_NAME;
 
-// Load MaxMind ASN database
+const collection_name = process.env.COLLECTION_NAME;
+
+console.log("Database Name: " + dbName);
+console.log("Collection Name: " + collection_name);
+console.log("URI: " + URI);
+
 const asnDatabase = maxmind.open("./GeoLite2-ASN.mmdb");
 console.log("Loaded asnLookup");
 
@@ -90,18 +93,19 @@ app.post("/checkUrl", async (req, res) => {
               destinationURL,
             };
 
-            // Connect to MongoDB
-            const client = new MongoClient(MONGODB_URI, {
+            
+            const client = new MongoClient(URI, {
               useNewUrlParser: true,
               useUnifiedTopology: true,
             });
             await client.connect();
+            console.log("Cponnected to MongoDB");
 
-            // Get the database
+            
             const db = client.db(dbName);
 
-            // Insert the data into the collection
-            const collection = db.collection("responseData");
+            
+            const collection = db.collection(collection_name);
             await collection.insertOne(responseData);
 
             console.log("Extracted information saved to MongoDB");

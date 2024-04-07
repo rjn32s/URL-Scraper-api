@@ -25,3 +25,9 @@ To run project
 ```bash
 npm run dev
 ```
+To hit the endpoints in the provided code, you can use the following HTTP requests:
+
+- To hit the /checkUrl endpoint with a POST request, you should send a JSON object in the request body with the url property set to the desired URL.
+
+ - To hit the /fill endpoint with a GET request, you can simply make a GET request to this endpoint. It will fill the instagram customer support form
+- The server is running on the default port 3000, or you can use the PORT environment variable if it's set.
