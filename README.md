@@ -47,9 +47,17 @@ To run project
 ```bash
 npm run dev
 ```
-To hit the endpoints in the provided code, you can use the following HTTP requests:
+## How to Hit API Endpoints
 
-- To hit the /checkUrl endpoint with a POST request, you should send a JSON object in the request body with the url property set to the desired URL.
+### 1. Check URL Endpoint (`POST /checkUrl`)
+To check a URL, you need to send a POST request to the `/checkUrl` endpoint with a JSON body containing the URL you want to check. Here's how you can do it using cURL:
 
- - To hit the /fill endpoint with a GET request, you can simply make a GET request to this endpoint. It will fill the instagram customer support form
-- The server is running on the default port 3000, or you can use the PORT environment variable if it's set.
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"url": "https://google.com"}'
+```
+### 2.  Fill Form Endpoint (`GET /fill`)
+
+To fill a form, you need to send a GET request to the /fill endpoint. This endpoint fills a specific form with dummy data extracted from an Excel file. Here's how you can do it using cURL:
+```bash
+curl -X GET http://localhost:3000/fill
+```
