@@ -22,17 +22,9 @@ This guide will walk you through the process of setting up a MongoDB database fo
 ### 1. Install MongoDB
 If you haven't already installed MongoDB, follow the installation instructions for your operating system from the official MongoDB documentation: [MongoDB Installation](https://docs.mongodb.com/manual/installation/)
 
-### 2. Set Up Environment Variables
-Create a `.env` file in your project directory and add the following variables:
 
-```dotenv
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017
-DB_NAME=url_db
-COLLECTION_NAME=responses
-```
 
-## Installing URL Scraper API
+## 2 Installing URL Scraper API
 
 To install URL Scraper API, follow these steps:
 
@@ -42,6 +34,15 @@ To install URL Scraper API, follow these steps:
 
 ```bash
 npm install
+```
+### 3. Set Up Environment Variables
+Create a `.env` file in your project directory and add the following variables: (One sample file is already there)
+
+```dotenv
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017
+DB_NAME=url_db
+COLLECTION_NAME=responses
 ```
 To run project
 ```bash
@@ -61,3 +62,4 @@ To fill a form, you need to send a GET request to the /fill endpoint. This endpo
 ```bash
 curl -X GET http://localhost:3000/fill
 ```
+There are some runs available in the data_json_local and images folder
